@@ -49,3 +49,10 @@
 - Server Component에서 Client Component에게 직렬화 되지 않는 Props는 전달이 불가하다.
   - 직렬화란 객체, 배열 클래스 등의 복잡한 구조의 데이터를 네트워크 상으로 전송하기 위해 아주 단순한 형태로 변환하는 것이다.
   - 함수는 직렬화가 불가능하다. (단순한 문자열이나 바이트로 직렬화 할 수 없다.)
+
+## 네비게이팅
+
+- App Router에서는 페이지 이동 요청이 발생하면 서버에서 JS Bundle과 RSC Payload를 생성해서 전달한다.
+- 이 후 JS를 실행(컴포넌트 교체) 시점에 RSC Payload와 합쳐서 브라우저에서 실행되고 페이지가 교체된다.
+  - 정적인 Static 페이지는 Production 시점에 prefetch가 발생한다. (RSC Payload + JS Bundle)
+  - 동적인 Dynamic 페이지는 RSC Payload만 prefetch가 발생한다. (JS Bundle prefetch 되지 않고 브라우저에서 실행된다.)
