@@ -4,7 +4,7 @@ import { BookData } from "@/types";
 import { API_URL } from "@/lib/constants";
 
 async function AllBooks() {
-  const response = await fetch(`${API_URL}/book`);
+  const response = await fetch(`${API_URL}/book`, { cache: "force-cache" });
 
   if (!response.ok) {
     return <div>오류가 발생했습니다.</div>;

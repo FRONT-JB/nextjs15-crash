@@ -4,7 +4,7 @@ import style from "./layout.module.css";
 import { API_URL } from "@/lib/constants";
 
 async function Footer() {
-  const response = await fetch(`${API_URL}/book`);
+  const response = await fetch(`${API_URL}/book`, { cache: "force-cache" });
 
   if (!response.ok) {
     return <footer>제작 @winterlood</footer>;
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body>
         <div className={style.container}>
           <header>

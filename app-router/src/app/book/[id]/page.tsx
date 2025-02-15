@@ -1,6 +1,7 @@
 import { API_URL } from "@/lib/constants";
 import style from "./page.module.css";
 import { BookData } from "@/types";
+import Image from "next/image";
 
 export default async function Page({
   params,
@@ -30,7 +31,12 @@ export default async function Page({
         className={style.cover_img_container}
         style={{ backgroundImage: `url('${coverImgUrl}')` }}
       >
-        <img src={coverImgUrl} />
+        <Image
+          src={coverImgUrl}
+          alt={title}
+          fill
+          style={{ objectFit: "cover" }}
+        />
       </div>
 
       <div className={style.title}>{title}</div>
